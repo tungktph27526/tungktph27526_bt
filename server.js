@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const uri = 'mongodb+srv://tungktph27526:kttung2609@cluster0.mdas35v.mongodb.net/cp17301?retryWrites=true&w=majority'
+const uri = 'mongodb+srv://tungktph27526:kttung2609@cluster0.mdas35v.mongodb.net/ASSM?retryWrites=true&w=majority'
 const expressHbs = require('express-handlebars')
 const nhanvienModel = require('./nhanvienModel')
 const mongodb = require('mongodb')
@@ -22,11 +22,11 @@ app.get('/', async (req, res) => {
 })
 app.get('/add_nv', async(req, res) =>{
   let name = req.query.tennv;
-  let address = req.query.diachinv
+  let age = req.query.tuoinv
   let salary = parseInt(req.query.luongnv)
   let nv = new nhanvienModel({
     ten: name,
-    diachi: address,
+    tuoi: age,
     luong: salary
   })
   console.log(req.body);
@@ -59,12 +59,12 @@ app.get('/up_nv', async (req, res) => {
 })
 app.get('/up_nv/update', async (req, res) => {
   let name = req.query.tennv
-  let address = req.query.diachinv
+  let age = req.query.tuoinv
   let salary = parseInt(req.query.luongnv)
   let idNV = req.query.idNVien
   try {
       await mongoose.connect(uri)
-      await nhanvienModel.collection.updateOne({ _id: new mongodb.ObjectId(`${idNV}`)}, { $set: { ten: name, diachi:address, luong: salary } })
+      await nhanvienModel.collection.updateOne({ _id: new mongodb.ObjectId(`${idNV}`)}, { $set: { ten: name, tuoi:age, luong: salary } })
       res.redirect('/')        
   } catch (error) {
       

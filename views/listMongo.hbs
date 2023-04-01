@@ -33,27 +33,32 @@
         .modal-content{
             background-color: rgba(255, 255, 255, 0.13);
         }
-    
+        .text-center{
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <div class="text-center">
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Thêm nhân viên
     </button>
+    </div>
+    
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 " id="staticBackdropLabel">Thêm nhân viên</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="add_nv" method="get">
                         <label for="name" class="form-label">Tên nhân viên:</label>
                         <input type="text" class="form-control" name="tennv" id="name">
-                        <label for="address" class="form-label">Địa chỉ:</label>
-                        <input type="text" class="form-control" name="diachinv" id="address">
+                        <label for="age" class="form-label">tuoi:</label>
+                        <input type="number" class="form-control" name="tuoinv" id="age">
                         <label for="salary" class="form-label">Lương:</label>
                         <input type="number" class="form-control" name="luongnv" id="salary">
                         <div class="modal-footer">
@@ -70,7 +75,7 @@
             <tr>
                 <th scope="col">STT</th>
                 <th scope="col">Tên</th>
-                <th scope="col">Địa chỉ</th>
+                <th scope="col">tuoi</th>
                 <th scope="col">Lương</th>
                 <th scope="col"></th>
             </tr>
@@ -80,7 +85,7 @@
             <tr>
                 <th scope="row">{{@index}}</th>
                 <td>{{ten}}</td>
-                <td>{{diachi}}</td>
+                <td>{{tuoi}}</td>
                 <td>{{luong}}</td>
                 <td>
                     <form method="get" action="up_nv">
