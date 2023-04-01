@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const uri = 'mongodb+srv://tungktph27526:kttung2609@cluster0.mdas35v.mongodb.net/ASSM?retryWrites=true&w=majority'
+const uri = 'mongodb+srv://tungktph27526:kttung2609@cluster0.mdas35v.mongodb.net/cp17301?retryWrites=true&w=majority'
 const expressHbs = require('express-handlebars')
 const nhanvienModel = require('./nhanvienModel')
 const mongodb = require('mongodb')
